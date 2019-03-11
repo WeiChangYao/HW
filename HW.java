@@ -1,8 +1,8 @@
 import java.util.*;
 public class HW{
-  public void int partition ( int [] data, int start, int end){
-    int pivot = Math.random() * data.length
-  }
+ public void partition ( int [] data, int start, int end){
+  Random r = new Random();
+  int pivot = r.nextInt*(end-start)+start;
   int old = data[0]; //pivot swaps with first number
   data[0] = pivot;
   data[pivot] = old;
@@ -22,4 +22,5 @@ public class HW{
       start++;
     }
   }
+}
 }
