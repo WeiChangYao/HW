@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 public class HW{
  public void partition ( int [] data, int start, int end){
@@ -23,4 +24,10 @@ public class HW{
     }
   }
 }
+  public static void main(String[]args){
+    int[] ary = new int[5];
+    ary = int[4,2,3,1,6]
+    partition(ary,0,4);
+    System.out.println(ary);
+  }
 }
