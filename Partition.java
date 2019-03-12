@@ -7,6 +7,9 @@ public class Partition{
   dayta[y] = old;
  }
  public static int partition ( int [] data, int start, int end){
+  if (data.length == 1){
+    return start;
+  }
   Random r = new Random();
   int pivot = r.nextInt(end-start+1)+start;
   
