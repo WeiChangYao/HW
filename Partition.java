@@ -9,6 +9,9 @@ public class Partition{
  public static int partition ( int [] data, int start, int end){
   Random r = new Random();
   int pivot = r.nextInt(end-start+1)+start;
+  
+  //int pivot = 3;
+   
   swap(data, start, pivot);
   pivot = start;
   start++;
@@ -46,8 +49,8 @@ public class Partition{
   return pivot;
 }
   public static void main(String[]args){
-    int[] data1 = {10, 80, 30, 90, 40, 50, 70};
-    partition(data1,0,6);
+    int[] data1 = {999,999,999,4,1,0,3,2,999,999,999};
+    System.out.println(partition(data1,0,10));
     System.out.println(Arrays.toString(data1));
   }
 }
