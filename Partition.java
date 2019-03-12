@@ -9,10 +9,8 @@ public class Partition{
  public static int partition ( int [] data, int start, int end){
   Random r = new Random();
   int pivot = r.nextInt(end-start+1)+start;
-  int old = data[start]; //pivot swaps with start number
-  data[start] = data[pivot];
-  data[pivot] = old;
-  pivot = start; //pivot index is the original start index
+  swap(data, start, pivot);
+  pivot = start;
   start++;
   while(start!=end){
     if (data[pivot] < data[start]){
@@ -20,11 +18,12 @@ public class Partition{
       end--;
     }
     else{
+      swap(data, start, pivot);
       pivot++;
       start++;
     }
   }
-  if (data[pivot] < data[start]){
+  if (data[pivot] > data[start]){
     swap(data, start, pivot);
     pivot++;
     start--;
