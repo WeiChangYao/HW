@@ -36,16 +36,27 @@ public class Quick{
    return pivot;
  }
 
-  public void quicksort(int[] data){
-    return quciksortH(data,0,data.length);
+  public static void quicksort(int[] data){
+    quicksortH(data,0,data.length-1);
   }
-  public void quicksortH(int[] data, int lo, int hi){
+  public static void quicksortH(int[] data, int lo, int hi){
     if (lo>=hi){
       return;
     }
     int pivot = partition(data,lo,hi);
     quicksortH(data,lo,pivot-1);
     quicksortH(data,pivot+1,hi);
+  }
+  public static void main(String[]args){
+    int[] data1 = {3,1,4,2,7};
+    System.out.println(Arrays.toString(data1));
+    quicksort(data1);
+    System.out.println(Arrays.toString(data1));
+    int[] data2 = {3,1,4,2,7};
+    Arrays.sort(data2);
+    System.out.println(Arrays.toString(data2));
+
+
   }
 
 }
