@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Random;
 public class Quick{
 
   public static void swap (int [] dayta, int x, int y){
@@ -11,9 +13,6 @@ public class Quick{
    }
    Random r = new Random();
    int pivot = r.nextInt(end-start+1)+start;
-
-   //int pivot = 3;
-
    swap(data, start, pivot);
    pivot = start;
    start++;
@@ -34,28 +33,19 @@ public class Quick{
      start--;
      end--;
    }
-   /*while (start != end){
-     if (data[start] > data[pivot]){
-       data[pivot] = old; //swap smaller one with pivot
-       int oldTwo = data[start];
-       data[start] = old;
-       data[pivot] = oldTwo;
-       pivot++;
-       start++;
-     }
-     else{
-       start++;
-     }
-   }
-   return pivot;*/
    return pivot;
  }
-  
-  public void quicksort(int[] data){
 
+  public void quicksort(int[] data){
+    return quciksortH(data,0,data.length);
   }
   public void quicksortH(int[] data, int lo, int hi){
-
+    if (lo>=hi){
+      return;
+    }
+    int pivot = partition(data,lo,hi);
+    quicksortH(data,lo,pivot-1);
+    quicksortH(data,pivot+1,hi);
   }
 
 }
