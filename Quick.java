@@ -9,26 +9,33 @@ public class Quick{
   }
   public static int partition ( int [] data, int start, int end){
    if (data.length == 1){
-     return start;
+     return start;  //for arrays with size 1
    }
    Random r = new Random();
-   int pivot = r.nextInt(end-start+1)+start;
+   int pivot = r.nextInt(end-start+1)+start;   //random num within that range
+   //int pivot = quickselect(data, (start+end)/2); //if my partition quickselect worked, this is what I'd have done
    swap(data, start, pivot);
    pivot = start;
    start++;
    while(start!=end){
+     /*if (data[pivot] == data[start]){
+       if (r.nextInt(2)==1){
+          swap(data, start, end);
+          //end--;
+       }
+     }*/
      if (data[pivot] < data[start]){
-       swap(data, start, end);
+       swap(data, start, end);   //swaps end with start and removes end
        end--;
      }
      else{
-       swap(data, start, pivot);
+       swap(data, start, pivot);  //swaps start and pivot and removes start
        pivot++;
        start++;
      }
    }
    if (data[pivot] > data[start]){
-     swap(data, start, pivot);
+     swap(data, start, pivot);  //final swap. 
      pivot++;
      start--;
      end--;
@@ -40,7 +47,7 @@ public class Quick{
     quicksortH(data,0,data.length-1);
   }
   public static void quicksortH(int[] data, int lo, int hi){
-    if (lo>=hi){
+    if (lo>=hi){                            //just like what we did in class
       return;
     }
     int pivot = partition(data,lo,hi);
@@ -48,20 +55,20 @@ public class Quick{
     quicksortH(data,pivot+1,hi);
   }
   public static int quickselect(int []data, int k){ 
+    /*int piv = partition(data,0,data.length-1);
+    while (piv != k){
+      if (piv < k){
+        piv = partition(data,0,piv);
+      }
+      else{
+        piv = partition(data,piv,data.length-1);
+      }
+    }
+    return data[k];*/
     quicksort(data);
-    return data[k];
+    return data[k];//tried using partition...
   }
-  /*public static void main(String[]args){
-    int[] data1 = {3,1,4,2,7};
-    System.out.println(Arrays.toString(data1));
-    quicksort(data1);
-    System.out.println(Arrays.toString(data1));
-    int[] data2 = {3,1,4,2,7};
-    Arrays.sort(data2);
-    System.out.println(Arrays.toString(data2));
 
-
-  }*/
   public static void main(String[]args){
   System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
   int[]MAX_LIST = {1000000000,500,10};
